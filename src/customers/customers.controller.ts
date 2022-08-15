@@ -55,4 +55,14 @@ export class CustomersController {
   findOne(@Param('id', ParseMongoIdPipe) id: string) {
     return this.customersService.findOne(id);
   }
+
+  @Get('seed/generate')
+  generateSeed() {
+    return this.customersService.generateSeed();
+  }
+
+  @Get('seed/delete')
+  deleteRecords() {
+    return this.customersService.deleteRecords();
+  }
 }

@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { Customer } from './entities/customer.entity';
 import * as moment from 'moment';
+import { faker } from '@faker-js/faker';
 
 @Injectable()
 export class CustomersService {
@@ -51,5 +52,27 @@ export class CustomersService {
       'years',
     );
     return { customer, deathDate };
+  }
+
+  async generateSeed() {
+    const customers = [];
+    for (let i = 0; i < 10; i++) {
+      const date = faker.date.birthdate({ min: 18, max: 65, mode: 'age' });
+      const customer = {
+        name: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        age: moment().diff(date, 'years'),
+        birthday: date,
+      } as CreateCustomerDto;
+
+      customers.push(customer);
+    }
+    await this.customerModel.insertMany(customers);
+    return 'Seed executed';
+  }
+
+  async deleteRecords() {
+    await this.customerModel.deleteMany();
+    return 'Records deleted';
   }
 }

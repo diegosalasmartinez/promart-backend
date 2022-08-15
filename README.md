@@ -25,3 +25,7 @@ PORT = 5000 o de su preferencia
 ```bash
 $ npm run start:dev
 ```
+
+## Autor
+
+Diego Salas

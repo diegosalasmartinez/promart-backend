@@ -2,38 +2,26 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Puede encontrar la documentación [aquí](https://diegosalas-promart-backend.herokuapp.com/api).
 
-## Installation
+## Instalación
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Variables de entorno
 
+Crear un archivo .env en la raíz del proyecto con la siguiente estructura:
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+MONGODB = conexión a la base de datos MongoDB
+PORT = 5000 o de su preferencia
 ```
 
-## Test
+## Ejecutar la aplicación
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ npm run start:dev
 ```

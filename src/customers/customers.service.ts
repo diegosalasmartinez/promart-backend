@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { Customer } from './entities/customer.entity';
-import moment from 'moment';
+import * as moment from 'moment';
 
 @Injectable()
 export class CustomersService {
@@ -44,7 +44,7 @@ export class CustomersService {
       throw new NotFoundException(`Usuario ${id} no existe`);
     }
     const customers = await this.findAll();
-    const maxAge = customers.mean + customers.std;
+    const maxAge = Math.ceil(customers.mean + customers.std);
     const ageLeft = maxAge - customer.age;
     const deathDate = moment(customer.birthday).add(
       customer.age + ageLeft,
